@@ -1,15 +1,25 @@
 /* eslint-disable react/prop-types */
 import "../../App.css";
+import { FaTrash } from "react-icons/fa";
 const SideBar = (props) => {
-  const noteElements = props.notes.map((note, index) => (
+  const noteElements = props.notes.map((note) => (
     <div key={note.id}>
       <div
         className={`title ${
           note.id === props.currentNote.id ? "selected-note" : ""
-        } p-2`}
+        } p-2 flex justify-between`}
         onClick={() => props.setCurrentNoteId(note.id)}
       >
-        <h4 className="text-snippet text-lg">Note {index + 1}</h4>
+        <h4 className="text-snippet text-lg truncate">
+          {note.body.split("\n")[0]}
+        </h4>
+
+        <FaTrash
+          className={`${
+            note.id === props.currentNote.id ? "" : "delete"
+          } text-white w-5 h-5`}
+          onClick={() => props.hundleDelete(note.id)}
+        />
       </div>
     </div>
   ));

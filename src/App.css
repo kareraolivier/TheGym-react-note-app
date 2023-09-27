@@ -94,6 +94,14 @@ button:focus {
   background-color: #0081c1;
 }
 
+.delete {
+  display: none;
+}
+
+.selected-note.delete {
+  display: block;
+}
+
 .selected-note .text-snippet {
   color: white;
   font-weight: 700;
